@@ -1,0 +1,16 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div *ngIf="pageContainsError" class="alert alert-danger" role="alert">Invalid Game Code</div>
+    <h1 class="display-4">Welcome to the Treasure Hunt</h1>
+    <p class="lead">Enter your team code to start the quest</p>
+    <div class="row">
+      <div class="col-6">
+        <input [(ngModel)]="teamCode" class="form-control" type="text" placeholder="Enter Code Here" />
+      </div>
+      <div class="col-6"></div>
+    </div>
+    <div class="entry-button">
+      <button type="button" (click)="onEntryCodeButtonClick()" class="btn btn-dark">Enter</button>
+    </div>
+  </div>
+</div>

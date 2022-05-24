@@ -1,0 +1,12 @@
+<div>
+  <div *ngIf="errorMessage != ''" class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+  <div class="col-6">
+    {{ question.text }}
+  </div>
+  <div class="col-6 response-input">
+    <input [(ngModel)]="userResponse" class="form-control" type="text" />
+  </div>
+  <div class="submit-button col-6">
+    <button type="button" (click)="onQuestionResponseSubmit()" class="btn btn-dark">Enter</button>
+  </div>
+</div>
