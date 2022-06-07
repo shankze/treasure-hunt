@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "Digital7";
+    src: local("Oxygen"), url(./assets/fonts/digital-7.ttf) format("truetype");
+}

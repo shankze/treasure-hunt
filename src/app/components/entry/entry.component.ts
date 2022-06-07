@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GameProgressService } from 'src/app/services/game-progress.service';
 import { SequenceService } from 'src/app/services/sequence.service';
 
 @Component({
@@ -11,8 +12,9 @@ export class EntryComponent implements OnInit {
   teamCode: string = '';
   pageContainsError: boolean = false;
   errorText: string = '';
+  teamName: string = '';
 
-  constructor(private router: Router, private sequenceService: SequenceService) {}
+  constructor(private router: Router, private sequenceService: SequenceService, private gameProgressService: GameProgressService) {}
 
   ngOnInit(): void {
     console.log('Entry Component');
@@ -22,27 +24,21 @@ export class EntryComponent implements OnInit {
     if (this.sequenceService.isTeamCodeValid(this.teamCode)) {
       window.localStorage.setItem('TREASURE_HUNT_TEAM_CODE', this.teamCode);
       this.pageContainsError = false;
-      let nextQuestion = this.sequenceService.getFirstQuestion(this.teamCode);
-      console.log('Team Code: ', this.teamCode);
-      console.log('Next Question: ', nextQuestion);
-      this.router.navigate([`/${nextQuestion.title}`]);
+      let writeProgressToDBObject = { teamCode: this.teamCode, teamName: this.sequenceService.getTeamName(this.teamCode), questionNumber: 0 };
+      this.gameProgressService.updateProgress(writeProgressToDBObject).subscribe({
+        next: () => this.navigateToNextQuestion(),
+        error: (err) => console.log(err),
+      });
     } else {
       this.teamCode = '';
       this.pageContainsError = true;
     }
+  }
 
-    /*
-    if (this.playerCode === '1') {
-      window.localStorage.setItem('TREASURE_HUNT_TEAM_CODE', this.playerCode);
-      this.pageContainsError = false;
-      this.router.navigate(['/chandler', this.playerCode]);
-    } else if (this.playerCode === '2') {
-      this.pageContainsError = false;
-      window.localStorage.setItem('TREASURE_HUNT_TEAM_CODE', this.playerCode);
-      this.router.navigate(['/title', this.playerCode]);
-    } else {
-      this.playerCode = '';
-      this.pageContainsError = true;
-    }*/
+  navigateToNextQuestion() {
+    let nextQuestion = this.sequenceService.getFirstQuestion(this.teamCode);
+    console.log('Team Code: ', this.teamCode);
+    console.log('Next Question: ', nextQuestion);
+    this.router.navigate([`/${nextQuestion.title}`]);
   }
 }

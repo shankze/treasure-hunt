@@ -1,10 +1,21 @@
 <div>
   <div *ngIf="errorMessage != ''" class="alert alert-danger" role="alert">{{ errorMessage }}</div>
-  <div class="col-6">
-    {{ question.text }}
+  <div *ngIf="question.category">
+    <div class="row">
+      <div class="col-md-8 category">
+        <span class="category-text">Category: {{ question.category }}</span>
+      </div>
+    </div>
   </div>
+
+  <div class="col-10 question">
+    <span class="question-text">
+      {{ question.text }}
+    </span>
+  </div>
+  <div *ngIf="question.containsImage"><img src="{{ question.imageURL }}" class="img-fluid" alt="Responsive image" /></div>
   <div class="col-6 response-input">
-    <input [(ngModel)]="userResponse" class="form-control" type="text" />
+    <input #userResponseInput [(ngModel)]="userResponse" class="form-control" type="text" tabindex="0" />
   </div>
   <div class="submit-button col-6">
     <button type="button" (click)="onQuestionResponseSubmit()" class="btn btn-dark">Enter</button>
