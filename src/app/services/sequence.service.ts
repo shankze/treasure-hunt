@@ -19,7 +19,7 @@ export class SequenceService {
   questionList = [
     {
       id: 1,
-      title: 'five',
+      title: 'bcn',
       containsText: true,
       containsImage: false,
       text: `"BCN Taste & Tradition, March, Le Jardinier, Tatemo and  ___."`,
@@ -201,11 +201,11 @@ export class SequenceService {
 
     {
       id: 19,
-      title: 'school',
+      title: 'tbd',
       containsText: true,
       containsImage: false,
-      text: ``,
-      answer: '',
+      text: `TBD`,
+      answer: 'tbd',
       match: 'exact',
     },
     {
@@ -215,7 +215,7 @@ export class SequenceService {
       containsImage: true,
       imageURL: 'assets/qr.png',
       text: 'Solve this Wordle',
-      answer: 'child',
+      answer: 'crane',
       match: 'exact',
     },
     {
