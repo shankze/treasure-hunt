@@ -11,12 +11,15 @@ export class DashboardlightComponent implements OnInit {
   constructor(private gameProgressService: GameProgressService) {}
   team1Progress;
   team2Progress;
+  team3Progress;
   private updateSubscription: Subscription;
   autoRefreshPage = true;
   team1TimeOnCurrentQuestionInSeconds;
   team2TimeOnCurrentQuestionInSeconds;
+  team3TimeOnCurrentQuestionInSeconds;
   team1CompletionTime;
   team2CompletionTime;
+  team3CompletionTime;
 
   ngOnInit(): void {
     if (this.autoRefreshPage) {
@@ -67,6 +70,27 @@ export class DashboardlightComponent implements OnInit {
           console.log(lastQuestionAnsweredTimeinSeconds);
           //this.team2TimeOnCurrentQuestionInSeconds = moment(lastQuestionAnsweredTimeinSeconds).format('mm:ss');
           this.team2TimeOnCurrentQuestionInSeconds = this.formatSeconds(lastQuestionAnsweredTimeinSeconds);
+          //console.log(this.team2TimeOnCurrentQuestionInSeconds);
+        }
+      },
+      error: (err) => console.log(err),
+    });
+        this.gameProgressService.getGameProgress('7327').subscribe({
+      next: (response) => {
+        if (response.modified) {
+          console.log(response.currentServerTime);
+          this.team3Progress = response;
+          if (response.lastAnsweredQuestionId == 900) {
+            this.team3TimeOnCurrentQuestionInSeconds = null;
+            this.team3CompletionTime = new Date(response.completionTime).toLocaleString('en-US', { timeZone: 'CST' });
+            return;
+          }
+          let currentTime: any = new Date(response.currentServerTime);
+          let lastQuestionAnsweredTime: any = new Date(response.modified);
+          let lastQuestionAnsweredTimeinSeconds = Math.abs(currentTime - lastQuestionAnsweredTime) / 1000;
+          console.log(lastQuestionAnsweredTimeinSeconds);
+          //this.team2TimeOnCurrentQuestionInSeconds = moment(lastQuestionAnsweredTimeinSeconds).format('mm:ss');
+          this.team3TimeOnCurrentQuestionInSeconds = this.formatSeconds(lastQuestionAnsweredTimeinSeconds);
           //console.log(this.team2TimeOnCurrentQuestionInSeconds);
         }
       },

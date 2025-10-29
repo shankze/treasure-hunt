@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="table-responsive col-md-6">
+  <div class="table-responsive col-md-4">
     <div *ngIf="team1Progress">
       <div *ngIf="team1TimeOnCurrentQuestionInSeconds" class="row">
         <div class="col-md-2"></div>
@@ -30,7 +30,7 @@
       </table>
     </div>
   </div>
-  <div class="table-responsive col-md-6">
+  <div class="table-responsive col-md-4">
     <div *ngIf="team2Progress">
       <div *ngIf="team2TimeOnCurrentQuestionInSeconds" class="row">
         <div class="col-md-2"></div>
@@ -53,6 +53,36 @@
         </thead>
         <tbody>
           <tr *ngFor="let question of team2Progress.progress">
+            <th scope="row">{{ question.questionNumber }}</th>
+            <th scope="row">{{ question.duration }}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <div class="table-responsive col-md-4">
+    <div *ngIf="team3Progress">
+      <div *ngIf="team3TimeOnCurrentQuestionInSeconds" class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+          <span class="timer">{{ team3TimeOnCurrentQuestionInSeconds }}</span>
+        </div>
+      </div>
+      <div *ngIf="team3CompletionTime" class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+          <span class="completion-time">Completion Time: {{ team3CompletionTime }}</span>
+        </div>
+      </div>
+      <table class="table table-danger">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let question of team3Progress.progress">
             <th scope="row">{{ question.questionNumber }}</th>
             <th scope="row">{{ question.duration }}</th>
           </tr>
