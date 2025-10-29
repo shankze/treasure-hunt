@@ -54,7 +54,7 @@ export class SequenceService {
       containsText: true,
       containsImage: true,
       imageURL: 'assets/courtyard.jpg',
-      text: 'Can you identify the restaurant we’re standing in front of?',
+      text: 'Can you identify the restaurant we are standing in front of?',
       answer: 'saravana bhavan',
       match: 'exact',
       category: 'Pink or Blue',
@@ -163,11 +163,11 @@ export class SequenceService {
 
     {
       id: 15,
-      title: 'layover',
+      title: 'spotlight',
       containsText: true,
       containsImage: false,
-      text: 'Under a sky full of stars, in a city known for revolution, His company says their products are built for every data team to move fast and break nothing. ?',
-      answer: 'yvr',
+      text: 'Under a sky full of stars, in a city known for revolution, the skyline pulsed with wristband light. The spotlight found him and and he ducked out of view. Who am I talking about?',
+      answer: 'andy byron',
       match: 'exact',
     },
     {
@@ -204,8 +204,8 @@ export class SequenceService {
       title: 'school',
       containsText: true,
       containsImage: false,
-      text: `What is the name of the main character in the song 'e school ke tem pe'?`,
-      answer: 'manoj',
+      text: ``,
+      answer: '',
       match: 'exact',
     },
     {
