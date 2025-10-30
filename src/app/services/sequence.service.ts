@@ -7,12 +7,12 @@ import { element } from 'protractor';
 export class SequenceService {
   constructor() {}
 
-  teamNames = { '2769': 'Team 1', '7325': 'Team 2', '6345': 'Team 3' };
+  teamNames = { '2759': 'Team 1', '7385': 'Team 2', '6345': 'Team 3' };
 
   sequenceList = { 
-    '2769': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 17, 18, 19, 900, 999], 
-    '7325': [17, 18, 19, 20, 15, 14, 13, 12, 11, 16, 10, 9, 8, 7, 6, 5, 4, 3, 1, 2, 900, 999], 
-    '6345': [17, 18, 19, 20, 15, 14, 13, 12, 11, 16, 10, 9, 8, 7, 6, 5, 4, 3, 1, 2, 900, 999] 
+    '2759': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 17, 18, 19, 900, 999], 
+    '7385': [17, 18, 19, 20, 15, 14, 13, 12, 11, 16, 10, 9, 8, 7, 6, 5, 4, 3, 1, 2, 900, 999], 
+    '6345': [10,11,9,12,8,13,1,7,14,18,3,17,5,19,20, 15,16,6,4,2,900, 999] 
   };
   //sequenceList = { '2769': [17, 18, 19, 900, 999], '7325': [19, 18, 17, 900, 999] };
 
@@ -23,19 +23,17 @@ export class SequenceService {
       containsText: true,
       containsImage: false,
       text: `"BCN Taste & Tradition, March, Le Jardinier, Tatemo and  ___."`,
-      answer: ['Musaafer'],
+      answer: ['musaafer'],
       match: 'one',
-      category: 'Pink or Blue',
     },
     {
       id: 2,
       title: 'movie',
-      containsText: false,
+      containsText: true,
       containsImage: true,
       imageURL: 'assets/ab.jpg',
       answer: ['great gambler', 'the great gambler'],
       match: 'one',
-      category: 'Pink or Blue',
     },
     {
       id: 3,
@@ -46,7 +44,6 @@ export class SequenceService {
       text: 'What city am I visiting?',
       answer: 'lucknow',
       match: 'exact',
-      category: 'Pink or Blue',
     },
     {
       id: 4,
@@ -57,7 +54,6 @@ export class SequenceService {
       text: 'Can you identify the restaurant we are standing in front of?',
       answer: 'saravana bhavan',
       match: 'exact',
-      category: 'Pink or Blue',
     },
     {
       id: 5,
@@ -77,7 +73,6 @@ export class SequenceService {
       text: 'The address of this house is _____ Brixton Dr, Richmond TX!',
       answer: '13911',
       match: 'exact',
-      category: 'Pink or Blue',
     },
     {
       id: 7,
@@ -87,7 +82,6 @@ export class SequenceService {
       text: "In the movie Mother (1999), Raj's family is against Jia and Raj's relationship because they are not of the same 'CLASS'. Instead, they want Raj to marry _____",
       answer: 'nisha',
       match: 'exact',
-      category: 'Pink or Blue',
     },
     {
       id: 8,
@@ -97,7 +91,6 @@ export class SequenceService {
       text: 'In the song "e school ke tem pe", what brand of bike (bicycle) does Manoj have?',
       answer: 'avon',
       match: 'exact',
-      category: 'Houston',
     },
     {
       id: 9,
@@ -108,7 +101,6 @@ export class SequenceService {
       text: `What movie is this still from?`,
       answer: ['dhanak'],
       match: 'one',
-      category: 'Houston',
     },
     {
       id: 10,
@@ -124,10 +116,9 @@ export class SequenceService {
       title: 'sound',
       containsText: true,
       containsImage: false,
-      text: `This engineer frustrated by the poor performance of expensive stereo systems, founded a company that prioritized how sound was perceived rather than measured—and later gifted the majority of its shares to the university where he taught?.`,
+      text: `This engineer frustrated by the poor performance of expensive stereo systems, founded a company that prioritized how sound was perceived rather than measured—and later gifted the majority of its shares to the university where he taught.`,
       answer: 'amar gopal bose',
       match: 'exact',
-      category: 'Houston',
     },
     {
       id: 12,
@@ -137,7 +128,6 @@ export class SequenceService {
       text: `This Indian city was renamed for a river, then for a poet, but locals still call it by its colonial name. Its airport code reflects none of these names. What is the airport code?`,
       answer: ['ixd','veab'],
       match: 'one',
-      category: 'Houston',
     },
     {
       id: 13,
@@ -148,7 +138,6 @@ export class SequenceService {
       text: `Which national park is this? `,
       answer: ['dry tortugas national park','dry tortugas'],
       match: 'one',
-      category: 'Houston',
     },
     {
       id: 14,
@@ -158,9 +147,7 @@ export class SequenceService {
       text: 'He once studied the body, now he feeds the soul. Two years from a white coat, he traded textbooks for turmeric and set up this popular Indian restaurant. He was the James Beard 2019 semi-finalist. 3 of you go to this restaurant. How much extra does this restaurant charge for splitting checks?',
       answer: ['2.97', '$2.97'],
       match: 'one',
-      category: 'Houston',
     },
-
     {
       id: 15,
       title: 'spotlight',
@@ -198,7 +185,6 @@ export class SequenceService {
       answer: 'udaipur',
       match: 'exact',
     },
-
     {
       id: 19,
       title: 'tbd',
@@ -224,8 +210,8 @@ export class SequenceService {
       containsText: true,
       containsImage: false,
       text: 'Send a team selfie to Shashank on Whatsapp receive the final code. At-least 4 members should be in the selfie. Any one member can send it.',
-      answer: 'youmadeit',
-      match: 'exact',
+      answer: ['youmadeit','you made it'],
+      match: 'one',
     },
     {
       id: 999,

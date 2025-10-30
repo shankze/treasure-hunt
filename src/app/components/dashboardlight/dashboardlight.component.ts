@@ -36,7 +36,7 @@ export class DashboardlightComponent implements OnInit {
   formatSeconds = (s) => new Date(s * 1000).toISOString().substring(14, 19);
 
   getTeamProgress() {
-    this.gameProgressService.getGameProgress('2769').subscribe({
+    this.gameProgressService.getGameProgress('2759').subscribe({
       next: (response) => {
         if (response.modified) {
           this.team1Progress = response;
@@ -54,7 +54,7 @@ export class DashboardlightComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
-    this.gameProgressService.getGameProgress('7325').subscribe({
+    this.gameProgressService.getGameProgress('7385').subscribe({
       next: (response) => {
         if (response.modified) {
           console.log(response.currentServerTime);
@@ -75,7 +75,7 @@ export class DashboardlightComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
-        this.gameProgressService.getGameProgress('7327').subscribe({
+        this.gameProgressService.getGameProgress('6345').subscribe({
       next: (response) => {
         if (response.modified) {
           console.log(response.currentServerTime);
