@@ -10,9 +10,9 @@ export class SequenceService {
   teamNames = { '2759': 'Team 1', '7385': 'Team 2', '6345': 'Team 3' };
 
   sequenceList = { 
-    '2759': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 17, 18, 19, 900, 999], 
-    '7385': [17, 18, 19, 20, 15, 14, 13, 12, 11, 16, 10, 9, 8, 7, 6, 5, 4, 3, 1, 2, 900, 999], 
-    '6345': [10,11,9,12,8,13,1,7,14,18,3,17,5,19,20, 15,16,6,4,2,900, 999] 
+    '2759': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 17, 18, 19,21, 900, 999], 
+    '7385': [17,18, 19, 20, 15, 14, 13, 12, 11, 16, 10, 9, 8,21, 7, 6, 5, 4, 3, 1, 2,900, 999], 
+    '6345': [10,11,9,12,8,13,1,7,14,18,21, 3,17,5,19,20, 15,16,6,4,2,900, 999] 
   };
   //sequenceList = { '2769': [17, 18, 19, 900, 999], '7325': [19, 18, 17, 900, 999] };
 
@@ -104,11 +104,11 @@ export class SequenceService {
     },
     {
       id: 10,
-      title: 'h3rc',
+      title: 'biryani',
       containsText: true,
       containsImage: false,
-      text: 'Some call me green, some call me H3RC. I make the world smaller no matter the season, but everyone remembers me for the wrong reason',
-      answer: ['evergiven', 'ever given'],
+      text: 'What is the total price of 1 Chicken Biryani, 2 Butter Naans and 1 Gulab Jamun at this restaurant - They rode in from two worlds—one with curry, one with jerky. Where masala meets brisket and paneer flirts with pico, this Houston hideout serves diplomacy on a plate?',
+      answer: ['$27', '27','$27.00', '27.00'],
       match: 'one',
     },
     {
@@ -178,20 +178,21 @@ export class SequenceService {
 
     {
       id: 18,
-      title: 'queen',
+      title: 'craving',
       containsText: true,
       containsImage: false,
-      text: 'This city was once ruled by a queen who never wore shoes, and its streets still echo with her silence. It’s the only place where the sun rises twice—once over water, and once in a mirror. Locals say the city “eats its own shadow” during a festival when no lamps are lit, yet the night glows gold.',
-      answer: 'udaipur',
-      match: 'exact',
+      text: 'This map doesn’t show rivers or roads—it shows cravings. From Hillcroft to Katy, from Westheimer to the Heights, these pins mark flavor, not geography. What place is this?',
+      answer: ["torchys","torchys tacos","torchy's","torchy's tacos"],
+      match: 'one',
     },
     {
       id: 19,
-      title: 'tbd',
+      title: 'treat',
       containsText: true,
-      containsImage: false,
-      text: `TBD`,
-      answer: 'tbd',
+      containsImage: true,
+      imageURL: 'assets/treat.jpg',
+      text: `It looks like velvet and tastes like summer. You won’t find it in the fruit aisle—but you might find it in a listing near Westheimer. Which Houston shop sells these?`,
+      answer: 'royal roastery',
       match: 'exact',
     },
     {
@@ -203,6 +204,15 @@ export class SequenceService {
       text: 'Solve this Wordle',
       answer: 'crane',
       match: 'exact',
+    },
+    {
+      id: 21,
+      title: 'word',
+      containsText: true,
+      containsImage: false,
+      text: "What is dictionary.com's word of the year 2025?",
+      answer: ['67',"six seven", "6-7"],
+      match: 'one',
     },
     {
       id: 900,
