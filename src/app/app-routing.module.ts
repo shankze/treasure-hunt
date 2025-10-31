@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'treat', component: QuestionComponent },
   { path: 'qr', component: QuestionComponent },
   { path: 'selfie', component: QuestionComponent },
+  { path: 'word', component: QuestionComponent },
   { path: 'thanks', component: EndhuntComponent },
   { path: 'dashboard', component: DashboardlightComponent },
   { path: 'dashboardfull', component: DashboardComponent },
